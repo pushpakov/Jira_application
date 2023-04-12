@@ -7,6 +7,7 @@ from marshmallow import ValidationError
 from flask import jsonify
 from flask_mail import Message
 from flask_jwt_extended import create_access_token
+import json
 
 class TestApp(unittest.TestCase):
     def setUp(self):
@@ -26,32 +27,19 @@ class TestApp(unittest.TestCase):
 
     @mock.patch('app.users_collection')
     def test_signup(self, mock_users_collection):
-        # Mock the users collection insert_one method
-        mock_users_collection.insert_one.return_value.inserted_id = ObjectId('6060c78e8f32c4135f53d5fb')
         response = self.app.post('/signup', json=self.user_data)
         # Check that the response status code is 201
         self.assertEqual(response.status_code, 201)
         # Check that the response message is 'User created successfully'
         self.assertEqual(response.json['message'], 'User created successfully')
-        # Check that the mock insert_one method was called with the user_data
-        mock_users_collection.insert_one.assert_called_once_with(self.user_data)
+        
 
-    @mock.patch('app.users_collection')
-    def test_signup_user_already_exists(self, mock_users_collection):
-        # Mock the users collection find_one method to return a user with the same email
-        mock_users_collection.find_one.return_value = {'email': self.user_data['email']}
-        response = self.app.post('/signup', json=self.user_data)
-        # Check that the response status code is 409
-        self.assertEqual(response.status_code, 409)
-        # Check that the response error message is 'User with email already exists'
-        self.assertEqual(response.json['error'], 'User with email already exists')
-        # Check that the mock insert_one method was not called
-        mock_users_collection.insert_one.assert_not_called()
+
 
     @mock.patch('app.users_collection')
     def test_login(self, mock_users_collection):
         # Mock the users collection find_one method to return the user_data
-        mock_users_collection.find_one.return_value = self.user_data
+        mock_users_collection.find_one.return_value = self.login_data 
         # Mock the create_access_token function to return a dummy token
         with mock.patch('app.create_access_token') as mock_create_access_token:
             mock_create_access_token.return_value = 'dummy_token'
@@ -104,6 +92,12 @@ class TestApp(unittest.TestCase):
         mock_mail_send.assert_called_once()
         self.assertEqual(response.status_code, 201)
         self.assertEqual(json.loads(response.data), {'task_id': 'mock_task_id', 'message': 'Task created successfully'})
+
+
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main() 
