@@ -1,44 +1,109 @@
-import mongomock
 import unittest
-import app
+from unittest import mock
+from app import app, db, mail, jwt
+from bson.objectid import ObjectId
+from datetime import datetime, timedelta
+from marshmallow import ValidationError
+from flask import jsonify
+from flask_mail import Message
+from flask_jwt_extended import create_access_token
 
-class SignupTestCase(unittest.TestCase):
+class TestApp(unittest.TestCase):
     def setUp(self):
-        # create a mock database
-        self.mock_client = mongomock.MongoClient()
-        app.users_collection = self.mock_client['jiraDB']['users']
-
-        # create a test app
-        app.app.config['TESTING'] = True
-        app.app.config['JWT_SECRET_KEY'] = 'test-secret'
-        self.app = app.app.test_client()
-
-    def tearDown(self):
-        # clean up mock database
-        self.mock_client.drop_database('jiraDB')
-
-    def test_signup(self):
-        # define test data
-        test_data = {
+        self.app = app.test_client()
+        self.user_data = {
             'name': 'Test User',
-            'email': 'test@example.com',
-            'password': 'test-password'
+            'email': 'testuser@test.com',
+            'password': 'testpassword'
+        }
+        self.login_data = {
+            'email': 'testuser@test.com',
+            'password': 'testpassword'
         }
 
-        # send POST request to signup endpoint
-        response = self.app.post('/signup', json=test_data)
+    def tearDown(self):
+        db.users.drop()
 
-        # check response status code and message
+    @mock.patch('app.users_collection')
+    def test_signup(self, mock_users_collection):
+        # Mock the users collection insert_one method
+        mock_users_collection.insert_one.return_value.inserted_id = ObjectId('6060c78e8f32c4135f53d5fb')
+        response = self.app.post('/signup', json=self.user_data)
+        # Check that the response status code is 201
         self.assertEqual(response.status_code, 201)
+        # Check that the response message is 'User created successfully'
         self.assertEqual(response.json['message'], 'User created successfully')
+        # Check that the mock insert_one method was called with the user_data
+        mock_users_collection.insert_one.assert_called_once_with(self.user_data)
 
-        # check user is inserted into mock database
-        inserted_user = app.users_collection.find_one({'email': test_data['email']})
-        self.assertIsNotNone(inserted_user)
-        self.assertEqual(inserted_user['name'], test_data['name'])
-        self.assertEqual(inserted_user['password'], test_data['password'])
+    @mock.patch('app.users_collection')
+    def test_signup_user_already_exists(self, mock_users_collection):
+        # Mock the users collection find_one method to return a user with the same email
+        mock_users_collection.find_one.return_value = {'email': self.user_data['email']}
+        response = self.app.post('/signup', json=self.user_data)
+        # Check that the response status code is 409
+        self.assertEqual(response.status_code, 409)
+        # Check that the response error message is 'User with email already exists'
+        self.assertEqual(response.json['error'], 'User with email already exists')
+        # Check that the mock insert_one method was not called
+        mock_users_collection.insert_one.assert_not_called()
+
+    @mock.patch('app.users_collection')
+    def test_login(self, mock_users_collection):
+        # Mock the users collection find_one method to return the user_data
+        mock_users_collection.find_one.return_value = self.user_data
+        # Mock the create_access_token function to return a dummy token
+        with mock.patch('app.create_access_token') as mock_create_access_token:
+            mock_create_access_token.return_value = 'dummy_token'
+            response = self.app.post('/login', json=self.login_data)
+            # Check that the response status code is 200
+            self.assertEqual(response.status_code, 200)
+            # Check that the response message is 'Logged in successfully'
+            self.assertEqual(response.json['message'], 'Logged in successfully')
+            # Check that the response access token is the dummy token returned by the mock create_access_token function
+            self.assertEqual(response.json['access_token'], 'dummy_token')
 
 
+
+    
+    @mock.patch('flask_jwt_extended.get_jwt_identity')
+    @mock.patch('flask.request')
+    @mock.patch('app.task_schema.load')
+    @mock.patch('pymongo.collection.Collection.insert_one')
+    @mock.patch('flask_mail.Mail.send')
+    @mock.patch('app.users_collection.find_one')
+    def test_create_task(self, mock_find_one, mock_mail_send, mock_insert_one, mock_task_schema_load, mock_request, mock_get_jwt_identity):
+        mock_get_jwt_identity.return_value = 'reporter@example.com'
+
+        mock_request.json = {
+            'title': 'Test Task',
+            'description': 'Test Description',
+            'reporter': {'email': 'reporter@example.com'},
+            'assignee': {'email': 'assignee@example.com'}
+        }
+
+        mock_task_schema_load.return_value = {
+            'title': 'Test Task',
+            'description': 'Test Description',
+            'reporter': {'email': 'reporter@example.com'},
+            'assignee': {'email': 'assignee@example.com'}
+        }
+
+        mock_find_one.return_value = {'email': 'assignee@example.com'}
+
+        response = app.test_client().post('/tasks', json=mock_request.json)
+
+        mock_task_schema_load.assert_called_once_with(mock_request.json)
+        mock_find_one.assert_called_once_with({'email': 'assignee@example.com'})
+        mock_insert_one.assert_called_once_with({
+            'title': 'Test Task',
+            'description': 'Test Description',
+            'reporter': {'email': 'reporter@example.com'},
+            'assignee': {'email': 'assignee@example.com'}
+        })
+        mock_mail_send.assert_called_once()
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(json.loads(response.data), {'task_id': 'mock_task_id', 'message': 'Task created successfully'})
 
 if __name__ == '__main__':
     unittest.main() 

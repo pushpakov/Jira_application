@@ -86,3 +86,17 @@
 2023-04-12 20:32:08,101 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
 2023-04-12 20:32:08,106 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
 2023-04-12 20:32:08,106 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 21:32:48,085 - logs.logger - ERROR - {'name': ['Missing data for required field.']}
+2023-04-12 21:32:48,085 - logs.logger - ERROR - {'name': ['Missing data for required field.']}
+2023-04-12 21:32:48,088 - logs.logger - ERROR - {'name': ['Missing data for required field.']}
+2023-04-12 21:32:48,088 - logs.logger - ERROR - {'name': ['Missing data for required field.']}
+2023-04-12 21:33:20,714 - logs.logger - ERROR - {'name': ['Missing data for required field.']}
+2023-04-12 21:33:20,714 - logs.logger - ERROR - {'name': ['Missing data for required field.']}
+2023-04-12 21:33:20,717 - logs.logger - ERROR - {'name': ['Missing data for required field.']}
+2023-04-12 21:33:20,717 - logs.logger - ERROR - {'name': ['Missing data for required field.']}
+2023-04-12 21:35:00,286 - logs.logger - ERROR - Invalid credentials
+2023-04-12 21:35:00,286 - logs.logger - ERROR - Invalid credentials
+2023-04-12 21:40:13,340 - logs.logger - ERROR - Invalid credentials
+2023-04-12 21:40:13,340 - logs.logger - ERROR - Invalid credentials
+2023-04-12 21:40:20,465 - logs.logger - ERROR - Invalid credentials
+2023-04-12 21:40:20,465 - logs.logger - ERROR - Invalid credentials
