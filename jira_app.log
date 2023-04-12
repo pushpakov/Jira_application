@@ -1,0 +1,88 @@
+2023-04-12 20:08:24,734 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:08:24,734 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:08:24,737 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:08:24,737 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:08:24,741 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:08:24,741 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:15:00,564 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:15:00,564 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:15:00,568 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:15:00,568 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:15:00,573 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:15:00,573 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:18:27,304 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:18:27,304 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:18:27,306 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:18:27,306 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:18:27,309 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:18:27,309 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:19:57,724 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:19:57,724 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:19:57,726 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:19:57,726 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:19:57,729 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:19:57,729 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:20:21,331 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:20:21,331 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:20:21,333 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:20:21,333 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:20:21,337 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:20:21,337 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:21:51,341 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:21:51,341 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:21:51,343 - logs.logger - ERROR - {'_schema': ['Invalid input type.']}
+2023-04-12 20:21:51,343 - logs.logger - ERROR - {'_schema': ['Invalid input type.']}
+2023-04-12 20:21:51,344 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:21:51,344 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:21:51,347 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:21:51,347 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:23:00,925 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:23:00,925 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:23:00,926 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:23:00,926 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:23:00,930 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:23:00,930 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:23:38,554 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:23:38,554 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:23:38,555 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:23:38,555 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:23:38,559 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:23:38,559 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:23:58,532 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:23:58,532 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:23:58,534 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:23:58,534 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:23:58,538 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:23:58,538 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:24:47,987 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:24:47,987 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:24:47,989 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:24:47,989 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:24:47,993 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:24:47,993 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:26:06,208 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:26:06,208 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:26:06,210 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:26:06,210 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:26:06,214 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:26:06,214 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:28:07,951 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:28:07,951 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:28:07,953 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:28:07,953 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:28:07,956 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:28:07,956 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:31:43,852 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:31:43,852 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:31:43,855 - logs.logger - ERROR - {'_schema': ['Invalid input type.']}
+2023-04-12 20:31:43,855 - logs.logger - ERROR - {'_schema': ['Invalid input type.']}
+2023-04-12 20:31:43,856 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:31:43,856 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:31:43,860 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:31:43,860 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:32:08,097 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:32:08,097 - logs.logger - ERROR - Invalid credentials
+2023-04-12 20:32:08,101 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:32:08,101 - logs.logger - ERROR - {'email': ['Not a valid email address.'], 'name': ['Unknown field.']}
+2023-04-12 20:32:08,106 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
+2023-04-12 20:32:08,106 - logs.logger - ERROR - {'email': ['Not a valid email address.']}
