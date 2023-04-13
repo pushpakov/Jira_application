@@ -15,10 +15,9 @@ COMMENT_COLLECTION = os.getenv('COMMENT_COLLECTION')
 
 
 class MongoConnection:
-    def __init__(self):
+    def __init__(self, MONGODB_URI,DB_NAME ) :
         self.client = MongoClient(MONGODB_URI) 
         self.db = self.client[DB_NAME] 
-        
 
     def get_collection(self, COLLECTION_NAME): 
         return self.db[COLLECTION_NAME] 

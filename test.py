@@ -1,6 +1,6 @@
 import unittest
 from unittest import mock
-from app import app, db, mail, jwt
+from app import app
 from bson.objectid import ObjectId
 from datetime import datetime, timedelta
 from marshmallow import ValidationError
@@ -23,7 +23,8 @@ class TestApp(unittest.TestCase):
         }
 
     def tearDown(self):
-        db.users.drop()
+        # db.users.drop()
+        pass
 
     @mock.patch('app.users_collection')
     def test_signup(self, mock_users_collection):

@@ -1,6 +1,6 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify 
 from flask_mail import Mail, Message  
-from pymongo import MongoClient
+# from pymongo import MongoClient
 from dotenv import load_dotenv  
 import os
 from bson.objectid import ObjectId
@@ -17,16 +17,24 @@ from validations.validation import UserSchema, TaskSchema, CommentSchema, LoginS
 
 from services.users import *
 
-# connect to the MongoDB server
-client = MongoClient("mongodb://localhost:27017")
+# load environment variables from .env file
+load_dotenv()
 
-# get a reference to the 'mydatabase' database
-db = client["jiraDB"] 
+MONGODB_URI = os.getenv('MONGODB_URI')
+DB_NAME = os.getenv('DB_NAME')
 
-# get a reference to the 'users' collection
-task_collection = db["tasks"]
+USER_COLLECTION = os.getenv('USER_COLLECTION') 
+TASK_COLLECTION = os.getenv('TASK_COLLECTION') 
+COMMENT_COLLECTION = os.getenv('COMMENT_COLLECTION')  
 
-comment_collection = db["comments"] 
+
+
+db = MongoConnection(MONGODB_URI,DB_NAME)  
+users_collection = db.get_collection(USER_COLLECTION)
+
+task_collection = db.get_collection(USER_COLLECTION)
+comment_collection = db.get_collection(USER_COLLECTION)
+
 
 
  
@@ -35,15 +43,14 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here' 
 
 
-
 # configuration of mail
-app.config['MAIL_SERVER']='smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'pk.kumar.jiraapp999311'
-app.config['MAIL_PASSWORD'] = 'gfcfhersrkellxne'
+app.config['MAIL_SERVER']= os.getenv('MAIL_SERVER')
+app.config['MAIL_PORT'] = os.getenv('MAIL_PORT')
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME') 
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD') 
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_DEFAULT_SENDER'] = 'pk.kumar.jiraapp999311'
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER') 
 mail = Mail(app)  
 
 # set JWT token location
@@ -135,7 +142,7 @@ def create_comment(task_id):
         return jsonify({'error': str(e)}), 400
 
     # Check if the task exists
-    task = task_collection.find_one({'_id': ObjectId(task_id)})
+    task = task_collection.find_one({'id': ObjectId(task_id)}) 
     if not task:
         return jsonify({'error': 'Task not found'}), 404
     
@@ -219,6 +226,6 @@ def get_user_tasks(email):
     return jsonify(result)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5003)
+    app.run(debug=True, port=5005)
 
 

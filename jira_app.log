@@ -108,3 +108,19 @@
 2023-04-12 22:55:39,173 - logs.logger - ERROR - Invalid credentials
 2023-04-12 22:56:02,367 - logs.logger - ERROR - Invalid credentials
 2023-04-12 22:56:02,367 - logs.logger - ERROR - Invalid credentials
+2023-04-13 07:22:14,936 - logs.logger - ERROR - Invalid credentials
+2023-04-13 07:22:14,936 - logs.logger - ERROR - Invalid credentials
+2023-04-13 07:22:16,714 - logs.logger - ERROR - Invalid credentials
+2023-04-13 07:22:16,714 - logs.logger - ERROR - Invalid credentials
+2023-04-13 07:22:18,255 - logs.logger - ERROR - Invalid credentials
+2023-04-13 07:22:18,255 - logs.logger - ERROR - Invalid credentials
+2023-04-13 10:13:12,280 - logs.logger - ERROR - Invalid credentials
+2023-04-13 10:13:12,280 - logs.logger - ERROR - Invalid credentials
+2023-04-13 10:24:21,613 - logs.logger - ERROR - Assignee with mail id pushpak99311@gmail.com does not exist
+2023-04-13 10:24:21,613 - logs.logger - ERROR - Assignee with mail id pushpak99311@gmail.com does not exist
+2023-04-13 10:27:54,692 - logs.logger - ERROR - Assignee with mail id pushpak99311@gmail.com does not exist
+2023-04-13 10:27:54,692 - logs.logger - ERROR - Assignee with mail id pushpak99311@gmail.com does not exist
+2023-04-13 10:28:25,407 - logs.logger - ERROR - Assignee with mail id pushpak99311@gmail.com does not exist
+2023-04-13 10:28:25,407 - logs.logger - ERROR - Assignee with mail id pushpak99311@gmail.com does not exist
+2023-04-13 10:28:38,187 - logs.logger - ERROR - {'assignee': {'email': ['Not a valid email address.']}}
+2023-04-13 10:28:38,187 - logs.logger - ERROR - {'assignee': {'email': ['Not a valid email address.']}}

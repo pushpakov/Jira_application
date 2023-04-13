@@ -9,26 +9,31 @@ from datetime import datetime, timedelta
 from logs.logger import setup_logger 
 from marshmallow import ValidationError
 from databases.data_base import *
-# from databases.data_base import MongoConnection
+from databases.data_base import MongoConnection
 from flask_jwt_extended import jwt_required, get_jwt_identity, JWTManager, create_access_token
 from validations.validation import UserSchema, TaskSchema, CommentSchema, LoginSchema
 
 
-# connect to the MongoDB server
-client = MongoClient("mongodb://localhost:27017")
+# load environment variables from .env file
+load_dotenv()
 
-# get a reference to the 'mydatabase' database
-db = client["jiraDB"] 
+# get environment variables
+MONGODB_URI = os.getenv('MONGODB_URI')
+DB_NAME = os.getenv('DB_NAME')
 
-# get a reference to the 'users' collection
-users_collection = db["users"]
-
-task_collection = db["tasks"]
-
-comment_collection = db["comments"] 
+USER_COLLECTION = os.getenv('USER_COLLECTION') 
+TASK_COLLECTION = os.getenv('TASK_COLLECTION') 
+COMMENT_COLLECTION = os.getenv('COMMENT_COLLECTION')  
 
 
- 
+
+db = MongoConnection(MONGODB_URI,DB_NAME)  
+users_collection = db.get_collection(USER_COLLECTION)
+
+task_collection = db.get_collection(USER_COLLECTION)
+comment_collection = db.get_collection(USER_COLLECTION)
+
+
 # create Flask app
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here' 
@@ -99,6 +104,6 @@ def login():
     # create a JWT token with a 24-hour expiration time
     access_token = create_access_token(identity=user_data['email'], expires_delta=timedelta(hours=24))
 
-    return jsonify({'access_token': access_token, 'message': 'Logged in successfully'}), 200
+    return jsonify({'access_token': access_token.decode('utf-8'), 'message': 'Logged in successfully'}), 200
 
 
